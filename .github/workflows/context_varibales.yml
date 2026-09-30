@@ -1,0 +1,23 @@
+name: Context Variables Demo
+
+on: push
+
+env:
+  APP_NAME: my-devops-app
+
+jobs:
+  demo:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Display GitHub context
+        run: echo "Triggered by ${{ github.actor }}"
+
+      - name: Display environment context
+        run: echo "App name is ${{ env.APP_NAME }}"
+
+      - name: Display runner context
+        run: echo "Runner OS is ${{ runner.os }}"
+
+      - name: Display repository
+        run: echo "Repository is ${{ github.repository }}"
